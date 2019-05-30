@@ -20,8 +20,8 @@ public class MainTest {
 	/**
 	 * BFS 使用队列来实现算法
 	 */
-	private static Queue<String> queue = new LinkedList<String>();
-	private static Map<String, Boolean> status = new HashMap();
+	private static Queue<String> queue = new LinkedList<String>(); // 搜索队列
+	private static Map<String, Boolean> status = new HashMap(); // 用来记录状态, 记录是否已经检查过。
 	
 	public static void main(String[] args) {
 		
