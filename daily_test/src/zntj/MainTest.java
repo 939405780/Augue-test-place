@@ -35,6 +35,7 @@ public class MainTest {
 	
 	public static void showThree(Queue<String> queue) {
 		System.out.println("-----------start------------");
+		
 		// 每次显示3条信息, 并可以循环显示。
 		for (int i = 0; i < 3; i ++) {
 			String str = queue.poll();
