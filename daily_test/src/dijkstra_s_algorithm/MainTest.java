@@ -36,7 +36,7 @@ public class MainTest {
 		// 各节点最少花费时的父节点
 		Map<String, String> parents = new HashMap<>();
 		// 已处理的节点
-		HashSet<String> processed = new HashSet<>();
+		HashSet<String> processed = new HashSet<>(); // 不可重复
 		// 在未处理的节点中找到开销最小的节点
 		String node = findLowestCostNode(costs, processed);
 		
@@ -49,9 +49,6 @@ public class MainTest {
 				// 通过node节点到该节点的最小消耗
 				int newCost = cost + entry.getValue();
 				// 更新从start到该节点的最小消耗
-				/*
-				 * debug 这里的if判断, 可能存在问题
-				 */
 				if (!costs.containsKey(entry.getKey()) || costs.get(entry.getKey()) > newCost) {
 					costs.put(entry.getKey(), newCost);
 					parents.put(entry.getKey(), node);
