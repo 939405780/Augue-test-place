@@ -9,34 +9,34 @@ import java.nio.channels.SelectionKey;
 import org.junit.jupiter.api.Test;
 
 public class MainTest {
-	@Test
-	public void test() throws IOException {
-		RandomAccessFile randomAccessFile = new RandomAccessFile("d:/test.txt", "rw");
-		FileChannel channel = randomAccessFile.getChannel();
-		
-		ByteBuffer buffer = ByteBuffer.allocate(48);
-		int bytesRead = channel.read(buffer);
-		while(bytesRead != -1) {
-			System.out.println("Read " + bytesRead);
-			buffer.flip();
-			/*
-			 * buffer.hasRemaining()·½·¨ÊÇÓÃÀ´ÅÐ¶ÏÊÇ·ñ»¹ÓÐÊµ¼Ê¿É¶ÁÈ¡µÄÊý¾Ý
-			 * ·­Òë:±íÊ¾µ±Ç°Î»ÖÃºÍÏÞÖÆÖ®¼äÊÇ·ñÓÐÈÎºÎÔªËØ¡£
-			 */
-			while(buffer.hasRemaining()) {
-				System.out.print((char)buffer.get());
-			}
-			buffer.clear();
-			bytesRead = channel.read(buffer);
-		}
-		// channelÊÇÍ¨¹ýrandomAccessFile¶ÔÏó»ñÈ¡µÄ, ËùÒÔÖ»ÐèÒª¹Ø±Õ´Ë¶ÔÏó¡£
-		randomAccessFile.close();
-	}
-	
-//	int interestSet = SelectionKey.OP_ACCEPT | SelectionKey.OP_CONNECT;
-	@Test
-	public void test2() {
-		int i = 1 | 4;
-		System.out.println(i);
-	}
+    @Test
+    public void test() throws IOException {
+        RandomAccessFile randomAccessFile = new RandomAccessFile("d:/test.txt", "rw");
+        FileChannel channel = randomAccessFile.getChannel();
+
+        ByteBuffer buffer = ByteBuffer.allocate(48);
+        int bytesRead = channel.read(buffer);
+        while (bytesRead != -1) {
+            System.out.println("Read " + bytesRead);
+            buffer.flip();
+            /*
+             * buffer.hasRemaining()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Êµï¿½Ê¿É¶ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+             * ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½Ê¾ï¿½ï¿½Ç°Î»ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Îºï¿½Ôªï¿½Ø¡ï¿½
+             */
+            while (buffer.hasRemaining()) {
+                System.out.print((char) buffer.get());
+            }
+            buffer.clear();
+            bytesRead = channel.read(buffer);
+        }
+        // channelï¿½ï¿½Í¨ï¿½ï¿½randomAccessFileï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Òªï¿½Ø±Õ´Ë¶ï¿½ï¿½ï¿½
+        randomAccessFile.close();
+    }
+
+    //	int interestSet = SelectionKey.OP_ACCEPT | SelectionKey.OP_CONNECT;
+    @Test
+    public void test2() {
+        int i = 1 | 4;
+        System.out.println(i);
+    }
 }

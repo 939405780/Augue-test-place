@@ -8,91 +8,89 @@ import java.util.Map;
 import java.util.Queue;
 
 /**
- * 
- * @Description ¹ã¶ÈÓÅÏÈËÑË÷Ëã·¨ (BFS)
- * @ClassName	MainTest
- * @Date		2019Äê5ÔÂ16ÈÕ ÉÏÎç9:13:43
- * @Author		Augue 939405780@qq.com
+ * @Description ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨ (BFS)
+ * @ClassName MainTest
+ * @Date 2019ï¿½ï¿½5ï¿½ï¿½16ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:13:43
+ * @Author Augue 939405780@qq.com
  */
 public class MainTest {
-	
-	private static Map<String , List<String>> map = new HashMap<String , List<String>>();
-	/**
-	 * BFS Ê¹ÓÃ¶ÓÁÐÀ´ÊµÏÖËã·¨
-	 */
-	private static Queue<String> queue = new LinkedList<String>(); // ËÑË÷¶ÓÁÐ
-	private static Map<String, Boolean> status = new HashMap(); // ÓÃÀ´¼ÇÂ¼×´Ì¬, ¼ÇÂ¼ÊÇ·ñÒÑ¾­¼ì²é¹ý¡£
-	
-	public static void main(String[] args) {
-		
-		init();
-		BFSSearch("4");
-		
-	}
-	
-	public static void init() {
-		/*
-		 * 	Í¼½á¹¹ÈçÏÂ
-		 * 		1
-		 * 	  /   \
-		 *   2     3
-		 *  / \   / \
-		 * 4   5  6  7
-		 * \  |  /\  /
-		 *    8     9
-		 */
-		map.put("1", Arrays.asList("2", "3"));
-		map.put("2", Arrays.asList("1", "4", "5"));
-		map.put("3", Arrays.asList("1", "6", "7"));
-		map.put("4", Arrays.asList("2", "8"));
-		map.put("5", Arrays.asList("2", "8"));
-		map.put("6", Arrays.asList("3", "8", "9"));
-		map.put("7", Arrays.asList("3", "9"));
-		map.put("8", Arrays.asList("4", "5", "6"));
-		map.put("9", Arrays.asList("6", "7"));
-	}
-	
-	/**
-	 * 
-	 * @Description ¿ªÊ¼µã
-	 * @Author		Augue 939405780@qq.com
-	 * @Date		2019Äê5ÔÂ16ÈÕ ÉÏÎç10:26:51
-	 * @param @param startPoint 
-	 * @return void  
-	 * @throws
-	 */
-	public static void BFSSearch(String startPoint) {
-		// °ÑÆðÊ¼µã·ÅÈë¶ÓÁÐ
-		queue.add(startPoint);
-		status.put(startPoint, false);
-		bfsLoop();
-	}
-	
-	private static void bfsLoop() {
-		// 1. ´ÓqueueÖÐÈ¡³ö¶ÓÁÐÍ·µÄµã£»¸üÐÂ×´Ì¬ÎªÒÑ¾­±éÀú¡£
-		String currentQueueHeader = queue.poll(); // ³ö¶Ó
-		status.put(currentQueueHeader, true);
-		System.out.println(currentQueueHeader);
-		// 2. ÕÒ³öÓë´ËµãÁÚ½ÓµÄÇÒÉÐÎ´±éÀúµÄµã£¬½øÐÐ±ê¼Ç£¬È»ºóÈ«²¿·ÅÈëqueueÖÐ¡£
-		List<String> neighborPoints = map.get(currentQueueHeader);
-		for (String point : neighborPoints) {
-			/**
-			 * getOrDefault(key, value);
-			 * mapÖÐÓÐÕâ¸ökeyÊ±£¬»ñÈ¡µÄÊÇÕâ¸ökeyµÄÖµ£¬Èç¹ûÃ»ÓÐÕâ¸ökey£¬Ôò»ñÈ¡µÄÊÇÄ¬ÈÏÖµfalse¡£
-			 */
-			if (!status.getOrDefault(point, false)) {
-				// Î´±»±éÀú
-				if (queue.contains(point)) {
-					continue;
-				}
-				queue.add(point);
-				status.put(point, false);
-			}
-		}
-		if (!queue.isEmpty()) { // Èç¹û¶ÓÁÐ²»Îª¿Õ¼ÌÐø±éÀú
-			bfsLoop();
-		}
-	}
-	
-	
+
+    private static Map<String, List<String>> map = new HashMap<String, List<String>>();
+    /**
+     * BFS Ê¹ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ã·¨
+     */
+    private static Queue<String> queue = new LinkedList<String>(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private static Map<String, Boolean> status = new HashMap(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼×´Ì¬, ï¿½ï¿½Â¼ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+    public static void main(String[] args) {
+
+        init();
+        BFSSearch("4");
+
+    }
+
+    public static void init() {
+        /*
+         * 	Í¼ï¿½á¹¹ï¿½ï¿½ï¿½ï¿½
+         * 		1
+         * 	  /   \
+         *   2     3
+         *  / \   / \
+         * 4   5  6  7
+         * \  |  /\  /
+         *    8     9
+         */
+        map.put("1", Arrays.asList("2", "3"));
+        map.put("2", Arrays.asList("1", "4", "5"));
+        map.put("3", Arrays.asList("1", "6", "7"));
+        map.put("4", Arrays.asList("2", "8"));
+        map.put("5", Arrays.asList("2", "8"));
+        map.put("6", Arrays.asList("3", "8", "9"));
+        map.put("7", Arrays.asList("3", "9"));
+        map.put("8", Arrays.asList("4", "5", "6"));
+        map.put("9", Arrays.asList("6", "7"));
+    }
+
+    /**
+     * @param @param startPoint
+     * @return void
+     * @throws
+     * @Description ï¿½ï¿½Ê¼ï¿½ï¿½
+     * @Author Augue 939405780@qq.com
+     * @Date 2019ï¿½ï¿½5ï¿½ï¿½16ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:26:51
+     */
+    public static void BFSSearch(String startPoint) {
+        // ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        queue.add(startPoint);
+        status.put(startPoint, false);
+        bfsLoop();
+    }
+
+    private static void bfsLoop() {
+        // 1. ï¿½ï¿½queueï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½Äµã£»ï¿½ï¿½ï¿½ï¿½×´Ì¬Îªï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        String currentQueueHeader = queue.poll(); // ï¿½ï¿½ï¿½ï¿½
+        status.put(currentQueueHeader, true);
+        System.out.println(currentQueueHeader);
+        // 2. ï¿½Ò³ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ú½Óµï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½Äµã£¬ï¿½ï¿½ï¿½Ð±ï¿½Ç£ï¿½È»ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½queueï¿½Ð¡ï¿½
+        List<String> neighborPoints = map.get(currentQueueHeader);
+        for (String point : neighborPoints) {
+            /**
+             * getOrDefault(key, value);
+             * mapï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½keyÊ±ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½keyï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½keyï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Öµfalseï¿½ï¿½
+             */
+            if (!status.getOrDefault(point, false)) {
+                // Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                if (queue.contains(point)) {
+                    continue;
+                }
+                queue.add(point);
+                status.put(point, false);
+            }
+        }
+        if (!queue.isEmpty()) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½Îªï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            bfsLoop();
+        }
+    }
+
+
 }

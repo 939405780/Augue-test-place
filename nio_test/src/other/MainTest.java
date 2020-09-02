@@ -3,16 +3,16 @@ package other;
 import java.util.Scanner;
 
 public class MainTest {
-	
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		while (scanner.hasNext()) { // scanner.hasNext()ÊÇÅĞ¶ÏÓÃ»§ÊÇ·ñÊäÈëÁËÖµ
-			if (scanner.hasNextInt()) {
-				int i = scanner.nextInt();
-				System.out.println("ÓÃ»§ÊäÈëÁË£º" + i);
-			}
-			break;
-		}
-		scanner.close();
-	}
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) { // scanner.hasNext()ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½Ã»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+            if (scanner.hasNextInt()) {
+                int i = scanner.nextInt();
+                System.out.println("ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½" + i);
+            }
+            break;
+        }
+        scanner.close();
+    }
 }

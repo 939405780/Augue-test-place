@@ -8,32 +8,32 @@ import java.nio.channels.FileChannel;
 import org.junit.Test;
 
 /**
- * FileChannel²âÊÔÀà
- * @author Augue
+ * FileChannelï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
+ * @author Augue
  */
 public class MainTest {
-	@Test
-	public void test() throws IOException {
-		RandomAccessFile file = new RandomAccessFile("d:/test.txt", "rw");
-		FileChannel channel = file.getChannel();
-		channel.position(channel.size()); // ½«Î»ÖÃ±ê¼ÇÉèÖÃÎªÎÄ¼þÄ©Î²
-		
-		String newData = "balabala, balabala";
-		ByteBuffer buffer = ByteBuffer.allocate(48);
-		buffer.clear(); // ÕâÀï¸Õ¸Õ´´½¨ÁËbuffer, clearµÄÒâÒå²»Ã÷È·
-		buffer.put(newData.getBytes());
-		
-		buffer.flip();
-		/*
-		 * buffer.hasRemaining()·½·¨ÊÇÓÃÀ´ÅÐ¶ÏÊÇ·ñ»¹ÓÐÊµ¼Ê¿É¶ÁÈ¡µÄÊý¾Ý
-		 * ·­Òë:±íÊ¾µ±Ç°Î»ÖÃºÍÏÞÖÆÖ®¼äÊÇ·ñÓÐÈÎºÎÔªËØ¡£
-		 */
-		while(buffer.hasRemaining()) {
-			channel.write(buffer);
-		}
-		
-		channel.close();
-		file.close();
-	}
+    @Test
+    public void test() throws IOException {
+        RandomAccessFile file = new RandomAccessFile("d:/test.txt", "rw");
+        FileChannel channel = file.getChannel();
+        channel.position(channel.size()); // ï¿½ï¿½Î»ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ä¼ï¿½Ä©Î²
+
+        String newData = "balabala, balabala";
+        ByteBuffer buffer = ByteBuffer.allocate(48);
+        buffer.clear(); // ï¿½ï¿½ï¿½ï¿½Õ¸Õ´ï¿½ï¿½ï¿½ï¿½ï¿½buffer, clearï¿½ï¿½ï¿½ï¿½ï¿½å²»ï¿½ï¿½È·
+        buffer.put(newData.getBytes());
+
+        buffer.flip();
+        /*
+         * buffer.hasRemaining()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Êµï¿½Ê¿É¶ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+         * ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½Ê¾ï¿½ï¿½Ç°Î»ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Îºï¿½Ôªï¿½Ø¡ï¿½
+         */
+        while (buffer.hasRemaining()) {
+            channel.write(buffer);
+        }
+
+        channel.close();
+        file.close();
+    }
 }

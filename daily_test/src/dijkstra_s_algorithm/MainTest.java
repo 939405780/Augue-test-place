@@ -8,138 +8,136 @@ import java.util.Map.Entry;
 import java.util.Stack;
 
 /**
- * 
- * @Description	µÒ¿ËË¹ÌØÀ­Ëã·¨javaÊµÏÖ
- * @ClassName	MainTest
- * @Date		2019Äê6ÔÂ4ÈÕ ÉÏÎç9:37:37
- * @Author		Augue 939405780@qq.com
+ * @Description    ï¿½Ò¿ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨javaÊµï¿½ï¿½
+ * @ClassName MainTest
+ * @Date 2019ï¿½ï¿½6ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:37:37
+ * @Author Augue 939405780@qq.com
  */
 public class MainTest {
-	/**
-	 * 
-	 * @Description Ëã·¨²½Öè£º
-	 * 				1. ÅÐ¶ÏÊÇ·ñÓÐÎ´´¦ÀíµÄ½Úµã
-	 * 				2. ÈôÓÐ£¬»ñµÃÆäÖÐÀëÆðµã×î½üµÄ½Úµã
-	 * 				3. ±éÀú¸Ã½ÚµãËùÓÐÁÚ¾Ó²¢¸üÐÂÆä¿ªÏú
-	 * 				4. Èç¹ûÓÐÁÚ¾ÓµÄ¿ªÏú±»¸üÐÂ£¬Í¬Ê±¸üÐÂ¸¸½Úµã
-	 * 				5. ¸Ã½Úµã±ê¼ÇÎªÒÑ´¦Àí
-	 * 				6. ÖØ¸´µÚ1²½
-	 */
-	// ÉèÖÃÃ»ÓÐÒÑÖªµ½´ïÂ·¾¶µÄ±ê¼Ç
-	private static int NOWAY_SIGN = Integer.MAX_VALUE;
-	private static String START = "start";
-	private static String END = "end";
-	
-	public void getMinStep(String start, String end, Map<String, Map<String, Integer>> graph) {
-		// ¸÷½ÚµãµÄ×îÉÙ»¨·Ñ
-		Map<String, Integer> costs = graph.get(start);
-		// ¸÷½Úµã×îÉÙ»¨·ÑÊ±µÄ¸¸½Úµã
-		Map<String, String> parents = new HashMap<>();
-		// ÒÑ´¦ÀíµÄ½Úµã
-		HashSet<String> processed = new HashSet<>(); // ²»¿ÉÖØ¸´
-		// ÔÚÎ´´¦ÀíµÄ½ÚµãÖÐÕÒµ½¿ªÏú×îÐ¡µÄ½Úµã
-		String node = findLowestCostNode(costs, processed);
-		
-		while (node != null && graph.get(node) != null) {
-			int cost = costs.get(node);
-			// ±éÀúµ±Ç°½ÚµãµÄËùÓÐÁÚ¾Ó
-			Iterator iterator = graph.get(node).entrySet().iterator();
-			while (iterator.hasNext()) {
-				Map.Entry<String, Integer> entry = (Entry<String, Integer>) iterator.next();
-				// Í¨¹ýnode½Úµãµ½¸Ã½ÚµãµÄ×îÐ¡ÏûºÄ
-				int newCost = cost + entry.getValue();
-				// ¸üÐÂ´Óstartµ½¸Ã½ÚµãµÄ×îÐ¡ÏûºÄ
-				if (!costs.containsKey(entry.getKey()) || costs.get(entry.getKey()) > newCost) {
-					costs.put(entry.getKey(), newCost);
-					parents.put(entry.getKey(), node);
-				}
-			}
-			
-			// ¸Ã½Úµã¼ÓÈëÒÑ´¦Àí
-			processed.add(node);
-			// ÕÒ³öµ±Ç°×îÐ¡ÏûºÄµÄ½Úµã
-			node = findLowestCostNode(costs, processed);
-		}
-		printPath(parents, costs.get(END));
-	}
-	
-	public void printPath(Map<String, String> parents, int cost) {
-		Stack<String> stack = new Stack<>();
-		String parent = parents.get(END);
-		
-		while (parent != null) {
-			if (START.equalsIgnoreCase(parent)) {
-				stack.push(START);
-				break;
-			}
-			stack.push(parent);
-			parent = parents.get(parent);
-		}
-		
-		StringBuffer path = new StringBuffer();
-		while (!stack.empty()) {
-			String node = stack.pop();
-			if (path.length() != 0) {
-				path.append("->");
-			}
-			path.append(node);
-		}
-		
-		System.out.println("×îÓÅÂ·ÏßÎª£º" + START + "->" + path.toString() + "->" + END);
-		System.out.println("Æä¿ªÏúÎª£º" + cost);
-		
-	}
-	/**
-	 * 
-	 * @Description ÔÚÎ´´¦ÀíµÄ½ÚµãÖÐÕÒµ½¿ªÏú×îÐ¡µÄ½Úµã
-	 * @Author		Augue 939405780@qq.com
-	 * @Date		2019Äê6ÔÂ4ÈÕ ÉÏÎç10:29:21
-	 * @param @param costs
-	 * @param @param processed
-	 * @param @return 
-	 * @return String  
-	 * @throws
-	 */
-	public String findLowestCostNode(Map<String, Integer> costs, HashSet<String> processed) {
-		
-		int lowestCost = NOWAY_SIGN;
-		String lowestCostNode = null;
-		Iterator iterator = costs.entrySet().iterator();
-		
-		while (iterator.hasNext()) {
-			Map.Entry<String, Integer> entry = (Entry<String, Integer>) iterator.next();
-			// ÒÑ´¦Àí½ÚµãÖÐ²»°üº¬´Ë½Úµã, ²¢ÇÒ»¨·ÑÊ±¼äÐ¡ÓÚ×îÐ¡¿ªÏú
-			if (!processed.contains(entry.getKey()) && entry.getValue() < lowestCost) {
-				lowestCost = entry.getValue();
-				lowestCostNode = entry.getKey();
-			}
-		}
-		
-		return lowestCostNode;
-	}
-	
-	public static void main(String[] args) {
-		Map<String, Map<String, Integer>> graph = new HashMap<>();
-		Map<String, Integer> start = new HashMap<>();
-		start.put("A", 5);
-		start.put("B", 2);
-		graph.put(START, start);
-		Map<String, Integer> a = new HashMap<>();
-		a.put("C", 4);
-		a.put("D", 2);
-		graph.put("A", a);
-		Map<String, Integer> b = new HashMap<>();
-		b.put("A", 8);
-		b.put("D", 7);
-		graph.put("B", b);
-		Map<String, Integer> c = new HashMap<>();
-		c.put("D", 6);
-		c.put(END, 3);
-		graph.put("C", c);
-		Map<String, Integer> d = new HashMap<>();
-		d.put(END, 1);
-		graph.put("D", d);
-		MainTest t = new MainTest();
-		t.getMinStep(START, END, graph);
-	}
+    /**
+     * @Description ï¿½ã·¨ï¿½ï¿½ï¿½è£º
+     * 1. ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½Ä½Úµï¿½
+     * 2. ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½Úµï¿½
+     * 3. ï¿½ï¿½ï¿½ï¿½ï¿½Ã½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾Ó²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä¿ªï¿½ï¿½
+     * 4. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ÓµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½Í¬Ê±ï¿½ï¿½ï¿½Â¸ï¿½ï¿½Úµï¿½
+     * 5. ï¿½Ã½Úµï¿½ï¿½ï¿½Îªï¿½Ñ´ï¿½ï¿½ï¿½
+     * 6. ï¿½Ø¸ï¿½ï¿½ï¿½1ï¿½ï¿½
+     */
+    // ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ä±ï¿½ï¿½
+    private static int NOWAY_SIGN = Integer.MAX_VALUE;
+    private static String START = "start";
+    private static String END = "end";
+
+    public void getMinStep(String start, String end, Map<String, Map<String, Integer>> graph) {
+        // ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½Ù»ï¿½ï¿½ï¿½
+        Map<String, Integer> costs = graph.get(start);
+        // ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Ù»ï¿½ï¿½ï¿½Ê±ï¿½Ä¸ï¿½ï¿½Úµï¿½
+        Map<String, String> parents = new HashMap<>();
+        // ï¿½Ñ´ï¿½ï¿½ï¿½Ä½Úµï¿½
+        HashSet<String> processed = new HashSet<>(); // ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½
+        // ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½Ä½Úµï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ä½Úµï¿½
+        String node = findLowestCostNode(costs, processed);
+
+        while (node != null && graph.get(node) != null) {
+            int cost = costs.get(node);
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½
+            Iterator iterator = graph.get(node).entrySet().iterator();
+            while (iterator.hasNext()) {
+                Map.Entry<String, Integer> entry = (Entry<String, Integer>) iterator.next();
+                // Í¨ï¿½ï¿½nodeï¿½Úµãµ½ï¿½Ã½Úµï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½
+                int newCost = cost + entry.getValue();
+                // ï¿½ï¿½ï¿½Â´ï¿½startï¿½ï¿½ï¿½Ã½Úµï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½
+                if (!costs.containsKey(entry.getKey()) || costs.get(entry.getKey()) > newCost) {
+                    costs.put(entry.getKey(), newCost);
+                    parents.put(entry.getKey(), node);
+                }
+            }
+
+            // ï¿½Ã½Úµï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½
+            processed.add(node);
+            // ï¿½Ò³ï¿½ï¿½ï¿½Ç°ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ÄµÄ½Úµï¿½
+            node = findLowestCostNode(costs, processed);
+        }
+        printPath(parents, costs.get(END));
+    }
+
+    public void printPath(Map<String, String> parents, int cost) {
+        Stack<String> stack = new Stack<>();
+        String parent = parents.get(END);
+
+        while (parent != null) {
+            if (START.equalsIgnoreCase(parent)) {
+                stack.push(START);
+                break;
+            }
+            stack.push(parent);
+            parent = parents.get(parent);
+        }
+
+        StringBuffer path = new StringBuffer();
+        while (!stack.empty()) {
+            String node = stack.pop();
+            if (path.length() != 0) {
+                path.append("->");
+            }
+            path.append(node);
+        }
+
+        System.out.println("ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½Îªï¿½ï¿½" + START + "->" + path.toString() + "->" + END);
+        System.out.println("ï¿½ä¿ªï¿½ï¿½Îªï¿½ï¿½" + cost);
+
+    }
+
+    /**
+     * @param @param  costs
+     * @param @param  processed
+     * @param @return
+     * @return String
+     * @throws
+     * @Description ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½Ä½Úµï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ä½Úµï¿½
+     * @Author Augue 939405780@qq.com
+     * @Date 2019ï¿½ï¿½6ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:29:21
+     */
+    public String findLowestCostNode(Map<String, Integer> costs, HashSet<String> processed) {
+
+        int lowestCost = NOWAY_SIGN;
+        String lowestCostNode = null;
+        Iterator iterator = costs.entrySet().iterator();
+
+        while (iterator.hasNext()) {
+            Map.Entry<String, Integer> entry = (Entry<String, Integer>) iterator.next();
+            // ï¿½Ñ´ï¿½ï¿½ï¿½Úµï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë½Úµï¿½, ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½
+            if (!processed.contains(entry.getKey()) && entry.getValue() < lowestCost) {
+                lowestCost = entry.getValue();
+                lowestCostNode = entry.getKey();
+            }
+        }
+
+        return lowestCostNode;
+    }
+
+    public static void main(String[] args) {
+        Map<String, Map<String, Integer>> graph = new HashMap<>();
+        Map<String, Integer> start = new HashMap<>();
+        start.put("A", 5);
+        start.put("B", 2);
+        graph.put(START, start);
+        Map<String, Integer> a = new HashMap<>();
+        a.put("C", 4);
+        a.put("D", 2);
+        graph.put("A", a);
+        Map<String, Integer> b = new HashMap<>();
+        b.put("A", 8);
+        b.put("D", 7);
+        graph.put("B", b);
+        Map<String, Integer> c = new HashMap<>();
+        c.put("D", 6);
+        c.put(END, 3);
+        graph.put("C", c);
+        Map<String, Integer> d = new HashMap<>();
+        d.put(END, 1);
+        graph.put("D", d);
+        MainTest t = new MainTest();
+        t.getMinStep(START, END, graph);
+    }
 }

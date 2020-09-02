@@ -3,21 +3,21 @@ package zhengshujie;
 import java.util.Scanner;
 
 /**
- * ÕûÊý½â
- * @author Augue
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
+ * @author Augue
  */
 public class MainTest {
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		double d;
-		while (scanner.hasNext()) {
-			int m = scanner.nextInt(); // ºÍ
-			int n = scanner.nextInt(); // »ý
-			if (m == 0 && n == 0) { // ¶¼Îª0, ½áÊøÊäÈë
-				break;
-			}
-			
-		}
-	}
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double d;
+        while (scanner.hasNext()) {
+            int m = scanner.nextInt(); // ï¿½ï¿½
+            int n = scanner.nextInt(); // ï¿½ï¿½
+            if (m == 0 && n == 0) { // ï¿½ï¿½Îª0, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                break;
+            }
+
+        }
+    }
 }

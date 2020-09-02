@@ -6,43 +6,42 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * 
- * @Description	²âÊÔÖÇÄÜÍÆ¼ö£¨ÀûÓÃ¶ÓÁĞÊµÏÖÖÇÄÜÍÆ¼öÂÖ²¥£©
- * @ClassName	MainTest
- * @Date		2019Äê5ÔÂ30ÈÕ ÉÏÎç10:35:45
- * @Author		Augue 939405780@qq.com
+ * @Description    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½Ö²ï¿½ï¿½ï¿½
+ * @ClassName MainTest
+ * @Date 2019ï¿½ï¿½5ï¿½ï¿½30ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:35:45
+ * @Author Augue 939405780@qq.com
  */
 public class MainTest {
-	public static void main(String[] args) {
-		
-		Queue<String> queue = new LinkedList<>();
-		List<String> list = new ArrayList<>();
-		
-		list.add("1. ÅÅĞĞ°ñµÚÒ»");
-		list.add("2. âù±¦");
-		list.add("3. °ÙÀû");
-		list.add("4. µ°»ÆÅÉ");
-		list.add("5. ¿É¿Ú¿ÉÀÖ");
-		list.add("6. ÁªÏë");
-		
-		queue.addAll(list);
-		
-		showThree(queue);
-		showThree(queue);
-		showThree(queue);
-		
-	}
-	
-	public static void showThree(Queue<String> queue) {
-		System.out.println("-----------start------------");
-		
-		// Ã¿´ÎÏÔÊ¾ÈıÌõĞÅÏ¢, ²¢¿ÉÒÔÑ­»·ÏÔÊ¾¡£
-		for (int i = 0; i < 3; i ++) {
-			String str = queue.poll();
-			System.out.println(str);
-			queue.add(str);
-		}
-		
-		System.out.println("-----------end------------");
-	}
+    public static void main(String[] args) {
+
+        Queue<String> queue = new LinkedList<>();
+        List<String> list = new ArrayList<>();
+
+        list.add("1. ï¿½ï¿½ï¿½Ğ°ï¿½ï¿½Ò»");
+        list.add("2. ï¿½ï¿½ï¿½ï¿½");
+        list.add("3. ï¿½ï¿½ï¿½ï¿½");
+        list.add("4. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+        list.add("5. ï¿½É¿Ú¿ï¿½ï¿½ï¿½");
+        list.add("6. ï¿½ï¿½ï¿½ï¿½");
+
+        queue.addAll(list);
+
+        showThree(queue);
+        showThree(queue);
+        showThree(queue);
+
+    }
+
+    public static void showThree(Queue<String> queue) {
+        System.out.println("-----------start------------");
+
+        // Ã¿ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
+        for (int i = 0; i < 3; i++) {
+            String str = queue.poll();
+            System.out.println(str);
+            queue.add(str);
+        }
+
+        System.out.println("-----------end------------");
+    }
 }

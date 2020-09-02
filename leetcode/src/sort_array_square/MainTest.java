@@ -3,48 +3,47 @@ package sort_array_square;
 import java.util.Arrays;
 
 /**
- * 
- * @Description	leetcode 977.ÓÐÐòÊý×éµÄÆ½·½
- * @ClassName	MainTest
- * @Date		2019Äê4ÔÂ29ÈÕ ÉÏÎç10:17:29
- * @Author		Augue 939405780@qq.com
+ * @Description leetcode 977.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½
+ * @ClassName MainTest
+ * @Date 2019ï¿½ï¿½4ï¿½ï¿½29ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10:17:29
+ * @Author Augue 939405780@qq.com
  */
 public class MainTest {
-	
-	public static void main(String[] args) {
-		
-		int[] A = {-4, -1, 0, 3, 10};
-		
-		A = sortedSquares(A);
-		System.out.print("array:");
-		for (int i : A) {
-			System.out.print(" " + i);
-		}
-	}
-	
-	/*
-	 * Ê±¼ä¸´ÔÓ¶È£ºO(n + n^2) "µÚÒ»¸öÑ­»·n´Î + µÚ¶þ¸öÇ¶Ì×Ñ­»·n^2´Î"
-	 * ¿Õ¼ä¸´ÔÓ¶È£ºO(1)
-	 */
-	public static int[] sortedSquares(int[] A) {
-		
-		// ¼ÆËãÊý×éÃ¿¸öÔªËØµÄÆ½·½Öµ
-		for (int i = 0; i < A.length; i ++) {
-			A[i] = A[i] * A[i];
-		}
-		// ÀûÓÃÃ°ÅÝÅÅÐò
-		for (int i = 0; i < A.length - 1; i ++) {
-			for (int j = 0; j < A.length - i - 1; j ++) {
-				if (A[j] > A[j + 1]) {
-					int temp = A[j];
-					A[j] = A[j + 1];
-					A[j + 1] = temp;
-				}
-			}
-		}
-//		// ÐÔÄÜ±ÈÀûÓÃÃ°ÅÝÅÅÐòÊµÏÖÒª¸ßºÜ¶à
+
+    public static void main(String[] args) {
+
+        int[] A = {-4, -1, 0, 3, 10};
+
+        A = sortedSquares(A);
+        System.out.print("array:");
+        for (int i : A) {
+            System.out.print(" " + i);
+        }
+    }
+
+    /*
+     * Ê±ï¿½ä¸´ï¿½Ó¶È£ï¿½O(n + n^2) "ï¿½ï¿½Ò»ï¿½ï¿½Ñ­ï¿½ï¿½nï¿½ï¿½ + ï¿½Ú¶ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½Ñ­ï¿½ï¿½n^2ï¿½ï¿½"
+     * ï¿½Õ¼ä¸´ï¿½Ó¶È£ï¿½O(1)
+     */
+    public static int[] sortedSquares(int[] A) {
+
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Ôªï¿½Øµï¿½Æ½ï¿½ï¿½Öµ
+        for (int i = 0; i < A.length; i++) {
+            A[i] = A[i] * A[i];
+        }
+        // ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        for (int i = 0; i < A.length - 1; i++) {
+            for (int j = 0; j < A.length - i - 1; j++) {
+                if (A[j] > A[j + 1]) {
+                    int temp = A[j];
+                    A[j] = A[j + 1];
+                    A[j + 1] = temp;
+                }
+            }
+        }
+//		// ï¿½ï¿½ï¿½Ü±ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½Òªï¿½ßºÜ¶ï¿½
 //		Arrays.sort(A);
-		
+
         return A;
     }
 }

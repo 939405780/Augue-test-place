@@ -3,32 +3,32 @@ package shuixianhuashu;
 import java.util.Scanner;
 
 /**
- * Ë®ÏÉ»¨Êý
- * @author Augue
+ * Ë®ï¿½É»ï¿½ï¿½ï¿½
  *
+ * @author Augue
  */
 public class MainTest {
-	
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		while (scanner.hasNext()) {
-			int m = scanner.nextInt();
-			int n = scanner.nextInt();
-			StringBuilder sb = new StringBuilder();
-			for (int i = m; i <= n; i ++) { // ±éÀúm~nÖ®¼äËùÓÐµÄÕûÊý
-				int bw = i / 100;
-				int sw = i % 100 / 10;
-				int gw = i % 10;
-				if (i == (Math.pow(bw, 3) + Math.pow(sw, 3) + Math.pow(gw, 3))) {
-					sb.append(i + " ");
-				}
-			}
-			if (sb.length() > 0) {
-				System.out.println(sb.toString());
-			} else {
-				System.out.println("no");
-			}
-		}
-	}
-	
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            int m = scanner.nextInt();
+            int n = scanner.nextInt();
+            StringBuilder sb = new StringBuilder();
+            for (int i = m; i <= n; i++) { // ï¿½ï¿½ï¿½ï¿½m~nÖ®ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+                int bw = i / 100;
+                int sw = i % 100 / 10;
+                int gw = i % 10;
+                if (i == (Math.pow(bw, 3) + Math.pow(sw, 3) + Math.pow(gw, 3))) {
+                    sb.append(i + " ");
+                }
+            }
+            if (sb.length() > 0) {
+                System.out.println(sb.toString());
+            } else {
+                System.out.println("no");
+            }
+        }
+    }
+
 }

@@ -1,43 +1,43 @@
 package selection_sort;
+
 /**
- * 
- * @Description	Ñ¡ÔñÅÅÐòËã·¨²âÊÔÀà
- * @ClassName	MainTest
- * @Date		2019Äê4ÔÂ23ÈÕ ÏÂÎç3:36:10
- * @Author		Augue 939405780@qq.com
+ * @Description Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @ClassName MainTest
+ * @Date 2019ï¿½ï¿½4ï¿½ï¿½23ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½3:36:10
+ * @Author Augue 939405780@qq.com
  */
 public class MainTest {
-	
-	public static void main(String[] args) {
-		
-		int[] arr = {4, 2, 15, 35, 12, 54, 36};
-		
+
+    public static void main(String[] args) {
+
+        int[] arr = {4, 2, 15, 35, 12, 54, 36};
+
 //		System.out.println("length: " + arr.length);
-		System.out.print("½»»»Ç°: ");
-		for (int i : arr) {
-			System.out.print(i + " ");
-		}
-		
-		for (int i = 0; i < arr.length - 1; i ++) {
-			int k = i;
-			for (int j = k + 1; j < arr.length; j ++) { // Ñ¡×îÐ¡µÄ¼ÇÂ¼
-				if (arr[j] < arr[k]) {
-					k = j; // ¼ÇÂ¼×îÐ¡µÄÖµµÄÏÂ±êÖµ
-				}
-			}
-			// ÄÚ²ãÑ­»·½áÊø£¬Ò²¾ÍÊÇÕÒµ½±¾ÂÖ×îÐ¡µÄÊý£¬ÔÙ½øÐÐ½»»»¡£
-			if (i != k) {
-				int temp = arr[i];
-				arr[i] = arr[k];
-				arr[k] = temp;
-			}
-		}
-		
-		System.out.println();
-		System.out.print("½»»»ºó: ");
-		
-		for (int i : arr) {
-			System.out.print(i + " ");
-		}
-	}
+        System.out.print("ï¿½ï¿½ï¿½ï¿½Ç°: ");
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            int k = i;
+            for (int j = k + 1; j < arr.length; j++) { // Ñ¡ï¿½ï¿½Ð¡ï¿½Ä¼ï¿½Â¼
+                if (arr[j] < arr[k]) {
+                    k = j; // ï¿½ï¿½Â¼ï¿½ï¿½Ð¡ï¿½ï¿½Öµï¿½ï¿½ï¿½Â±ï¿½Öµ
+                }
+            }
+            // ï¿½Ú²ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½
+            if (i != k) {
+                int temp = arr[i];
+                arr[i] = arr[k];
+                arr[k] = temp;
+            }
+        }
+
+        System.out.println();
+        System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
+
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+    }
 }

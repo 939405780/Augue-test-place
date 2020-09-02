@@ -12,8 +12,8 @@ public class Counter implements Runnable {
 
     public void countAdd() {
         synchronized (this) {
-            for (int i = 0; i < 5; i ++) {
-                System.out.println(Thread.currentThread().getName() + ":" + (count ++));
+            for (int i = 0; i < 5; i++) {
+                System.out.println(Thread.currentThread().getName() + ":" + (count++));
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
@@ -24,8 +24,8 @@ public class Counter implements Runnable {
     }
 
     public void printCount() {
-        for (int i = 0; i < 5; i ++) {
-            System.out.println(Thread.currentThread().getName() + ":" + (count ++));
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Thread.currentThread().getName() + ":" + (count++));
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {

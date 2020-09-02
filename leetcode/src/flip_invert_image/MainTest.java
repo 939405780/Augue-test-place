@@ -1,51 +1,50 @@
 package flip_invert_image;
 
 /**
- * 
- * @Description leetcode 832.·­×ªÍ¼Ïñ
- * @ClassName	MainTest
- * @Date		2019Äê4ÔÂ28ÈÕ ÏÂÎç2:23:05
- * @Author		Augue 939405780@qq.com
+ * @Description leetcode 832.ï¿½ï¿½×ªÍ¼ï¿½ï¿½
+ * @ClassName MainTest
+ * @Date 2019ï¿½ï¿½4ï¿½ï¿½28ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:23:05
+ * @Author Augue 939405780@qq.com
  */
 public class MainTest {
-	
-	/*
-	 * 	Ê±¼ä¸´ÔÓ¶È£ºO(n^2)
-	 * 	¿Õ¼ä¸´ÔÓ¶È£ºO(1)
-	 */
-	public static int[][] flipAndInvertImage(int[][] val) {
-		
-		for (int i = 0; i < val.length; i ++) {
-			for (int j = 0; j < val[i].length / 2; j ++) { // ´Ë´¦¶ÔvalµÄÃ¿¸öÔªËØÊý×é½øÐÐ·­×ª²Ù×÷¡£
-				int temp = val[i][j];
-				val[i][j] = val[i][val[i].length - 1 - j];
-				val[i][val[i].length - 1 - j] = temp;
-			}
-			for (int j = 0; j < val[i].length; j ++) { // ÔªËØÖµ1, 0±ä»¯
-				if (val[i][j] == 0) {
-					val[i][j] = 1;
-				} else {
-					val[i][j] = 0;
-				}
-			}
-		}
-		
+
+    /*
+     * 	Ê±ï¿½ä¸´ï¿½Ó¶È£ï¿½O(n^2)
+     * 	ï¿½Õ¼ä¸´ï¿½Ó¶È£ï¿½O(1)
+     */
+    public static int[][] flipAndInvertImage(int[][] val) {
+
+        for (int i = 0; i < val.length; i++) {
+            for (int j = 0; j < val[i].length / 2; j++) { // ï¿½Ë´ï¿½ï¿½ï¿½valï¿½ï¿½Ã¿ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                int temp = val[i][j];
+                val[i][j] = val[i][val[i].length - 1 - j];
+                val[i][val[i].length - 1 - j] = temp;
+            }
+            for (int j = 0; j < val[i].length; j++) { // Ôªï¿½ï¿½Öµ1, 0ï¿½ä»¯
+                if (val[i][j] == 0) {
+                    val[i][j] = 1;
+                } else {
+                    val[i][j] = 0;
+                }
+            }
+        }
+
         return val;
     }
-	
-	public static void main(String[] args) {
-		
-		int[][] val = {{1, 1, 0}, {0, 1, 0}, {1, 0, 1}};
-		
-		val = flipAndInvertImage(val);
-		
-		for (int[] arr : val) {
-			System.out.print("array:");
-			for (int i : arr) {
-				System.out.print(" " + i);
-			}
-			System.out.println();
-		}
-		
-	}
+
+    public static void main(String[] args) {
+
+        int[][] val = {{1, 1, 0}, {0, 1, 0}, {1, 0, 1}};
+
+        val = flipAndInvertImage(val);
+
+        for (int[] arr : val) {
+            System.out.print("array:");
+            for (int i : arr) {
+                System.out.print(" " + i);
+            }
+            System.out.println();
+        }
+
+    }
 }

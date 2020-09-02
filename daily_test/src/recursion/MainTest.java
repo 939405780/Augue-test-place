@@ -1,32 +1,31 @@
 package recursion;
 
 /**
- * 
- * @Description	ÀûÓÃµÝ¹é£¬ÊµÏÖµ¹¼ÆÊ±
- * @ClassName	MainTest
- * @Date		2019Äê4ÔÂ29ÈÕ ÉÏÎç9:36:03
- * @Author		Augue 939405780@qq.com
+ * @Description    ï¿½ï¿½ï¿½ÃµÝ¹é£¬Êµï¿½Öµï¿½ï¿½ï¿½Ê±
+ * @ClassName MainTest
+ * @Date 2019ï¿½ï¿½4ï¿½ï¿½29ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:36:03
+ * @Author Augue 939405780@qq.com
  */
 public class MainTest {
-	
-	public static void main(String[] args) {
-		int i = 10;
-		cutOne(i);
-	}
-	
-	/*
-	 * Ã¿¸öµÝ¹éº¯Êý¶¼ÓÐÁ½²¿·Ö£º»ùÏßÌõ¼þ¡¢µÝ¹éÌõ¼þ
-	 */
-	public static void cutOne(int i) {
-		
-		System.out.println(i);
-		
-		// »ùÏßÌõ¼þ
-		if (i == 0) {
-			return;
-		}
-		// µÝ¹éÌõ¼þ
-		i --;
-		cutOne(i);
-	}
+
+    public static void main(String[] args) {
+        int i = 10;
+        cutOne(i);
+    }
+
+    /*
+     * Ã¿ï¿½ï¿½ï¿½Ý¹éº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½ï¿½ï¿½
+     */
+    public static void cutOne(int i) {
+
+        System.out.println(i);
+
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        if (i == 0) {
+            return;
+        }
+        // ï¿½Ý¹ï¿½ï¿½ï¿½ï¿½ï¿½
+        i--;
+        cutOne(i);
+    }
 }

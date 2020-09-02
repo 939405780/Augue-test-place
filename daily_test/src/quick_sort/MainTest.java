@@ -5,62 +5,60 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 
- * @Description	¿ìËÙÅÅÐò£¨Ê¹ÓÃÁËµÝ¹é£©
- * @ClassName	MainTest
- * @Date		2019Äê5ÔÂ5ÈÕ ÉÏÎç11:23:04
- * @Author		Augue 939405780@qq.com
+ * @Description    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ËµÝ¹é£©
+ * @ClassName MainTest
+ * @Date 2019ï¿½ï¿½5ï¿½ï¿½5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½11:23:04
+ * @Author Augue 939405780@qq.com
  */
 public class MainTest {
-	
-	public static void main(String[] args) {
-		
-		Integer[] arr = {10, 56, 43, 29, 37, 2, 5, 3};
-		
-		arr = quickSort(arr);
-		
-		for (int i : arr) {
-			System.out.println(i);
-		}
-	}
-	
-	/**
-	 * 
-	 * @Description ¿ìËÙÅÅÐò£¬»ù×¼ÊýÎªÊý×éµÄµÚÒ»¸öÔªËØ
-	 * @Author		Augue 939405780@qq.com
-	 * @Date		2019Äê5ÔÂ5ÈÕ ÉÏÎç11:22:34
-	 * @param @param arr
-	 * @param @return 
-	 * @return Integer[]  
-	 * @throws
-	 */
-	public static Integer[] quickSort(Integer[] arr) {
-		
-		// »ùÏßÌõ¼þ
-		if (arr.length < 2) { // Êý×éÔªËØÐ¡ÓÚ¶þÊ±Ö±½Ó·µ»Ø
-			return arr;
-		}
-		
-		// µÝ¹éÌõ¼þ
-		int point = arr[0]; // »ù×¼Êý
-		List<Integer> less = new ArrayList<>(); // Ð¡ÓÚ»ù×¼ÊýµÄ×ÓÊý×é
-		List<Integer> greater = new ArrayList<>(); // ´óÓÚ»ù×¼ÊýµÄ×ÓÊý×é
-		
-		for (int i = 1; i < arr.length; i ++) {
-			if (arr[i] <= point) {
-				less.add(arr[i]);
-			} else {
-				greater.add(arr[i]);
-			}
-		}
-		
-		Integer[] l = quickSort(less.toArray(new Integer[less.size()]));
-		Integer[] g = quickSort(greater.toArray(new Integer[greater.size()]));
-		
-		List<Integer> result = new ArrayList<>(Arrays.asList(l));
-		result.add(point);
-		result.addAll(Arrays.asList(g));
-		
-		return result.toArray(new Integer[result.size()]);
-	}
+
+    public static void main(String[] args) {
+
+        Integer[] arr = {10, 56, 43, 29, 37, 2, 5, 3};
+
+        arr = quickSort(arr);
+
+        for (int i : arr) {
+            System.out.println(i);
+        }
+    }
+
+    /**
+     * @param @param  arr
+     * @param @return
+     * @return Integer[]
+     * @throws
+     * @Description ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò£¬»ï¿½×¼ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½
+     * @Author Augue 939405780@qq.com
+     * @Date 2019ï¿½ï¿½5ï¿½ï¿½5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½11:22:34
+     */
+    public static Integer[] quickSort(Integer[] arr) {
+
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        if (arr.length < 2) { // ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Ð¡ï¿½Ú¶ï¿½Ê±Ö±ï¿½Ó·ï¿½ï¿½ï¿½
+            return arr;
+        }
+
+        // ï¿½Ý¹ï¿½ï¿½ï¿½ï¿½ï¿½
+        int point = arr[0]; // ï¿½ï¿½×¼ï¿½ï¿½
+        List<Integer> less = new ArrayList<>(); // Ð¡ï¿½Ú»ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        List<Integer> greater = new ArrayList<>(); // ï¿½ï¿½ï¿½Ú»ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] <= point) {
+                less.add(arr[i]);
+            } else {
+                greater.add(arr[i]);
+            }
+        }
+
+        Integer[] l = quickSort(less.toArray(new Integer[less.size()]));
+        Integer[] g = quickSort(greater.toArray(new Integer[greater.size()]));
+
+        List<Integer> result = new ArrayList<>(Arrays.asList(l));
+        result.add(point);
+        result.addAll(Arrays.asList(g));
+
+        return result.toArray(new Integer[result.size()]);
+    }
 }

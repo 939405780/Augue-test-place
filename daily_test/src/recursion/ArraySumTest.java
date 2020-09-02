@@ -5,46 +5,45 @@ import java.util.Arrays;
 import org.junit.Test;
 
 /**
- * 
- * @Description	ÀûÓÃµİ¹éÊµÏÖÊı×éÇóºÍ
- * @ClassName	ArraySumTest
- * @Date		2019Äê5ÔÂ5ÈÕ ÉÏÎç9:00:00
- * @Author		Augue 939405780@qq.com
+ * @Description    ï¿½ï¿½ï¿½Ãµİ¹ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @ClassName ArraySumTest
+ * @Date 2019ï¿½ï¿½5ï¿½ï¿½5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½9:00:00
+ * @Author Augue 939405780@qq.com
  */
 public class ArraySumTest {
-	
-	public static void main(String[] args) {
-		int[] arr = {2, 5, 8, 10, 15};
-		int sum = sum(arr);
-		System.out.println("sum: " + sum);
-	}
-	/**
-	 * 
-	 * @Description ÀûÓÃµİ¹éÊµÏÖÊı×éÇóºÍ
-	 * @Author		Augue 939405780@qq.com
-	 * @Date		2019Äê5ÔÂ5ÈÕ ÉÏÎç8:55:55
-	 * @param @param arr
-	 * @param @return 
-	 * @return int  
-	 * @throws
-	 */
-	public static int sum(int[] arr) {
-		// »ùÏßÌõ¼ş
-		if (arr.length == 1) {
-			return arr[0];
-		}
-		// µİ¹éÌõ¼ş
-		return arr[0] + sum(Arrays.copyOfRange(arr, 1, arr.length));
-	}
-	
-	@Test
-	public void test() {
-		int[] arr = {1, 2, 3, 4};
-		
-		arr = Arrays.copyOfRange(arr, 1, arr.length);
-		
-		for (int i : arr) {
-			System.out.println(i);
-		}
-	}
+
+    public static void main(String[] args) {
+        int[] arr = {2, 5, 8, 10, 15};
+        int sum = sum(arr);
+        System.out.println("sum: " + sum);
+    }
+
+    /**
+     * @param @param  arr
+     * @param @return
+     * @return int
+     * @throws
+     * @Description ï¿½ï¿½ï¿½Ãµİ¹ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @Author Augue 939405780@qq.com
+     * @Date 2019ï¿½ï¿½5ï¿½ï¿½5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½8:55:55
+     */
+    public static int sum(int[] arr) {
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        if (arr.length == 1) {
+            return arr[0];
+        }
+        // ï¿½İ¹ï¿½ï¿½ï¿½ï¿½ï¿½
+        return arr[0] + sum(Arrays.copyOfRange(arr, 1, arr.length));
+    }
+
+    @Test
+    public void test() {
+        int[] arr = {1, 2, 3, 4};
+
+        arr = Arrays.copyOfRange(arr, 1, arr.length);
+
+        for (int i : arr) {
+            System.out.println(i);
+        }
+    }
 }

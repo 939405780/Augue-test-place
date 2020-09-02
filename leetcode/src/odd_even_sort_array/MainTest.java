@@ -1,90 +1,87 @@
 package odd_even_sort_array;
 
 /**
- * 
- * @Description	leetcode 905.
- * @ClassName	MainTest
- * @Date		2019Äê5ÔÂ6ÈÕ ÉÏÎç8:47:20
- * @Author		Augue 939405780@qq.com
+ * @Description leetcode 905.
+ * @ClassName MainTest
+ * @Date 2019ï¿½ï¿½5ï¿½ï¿½6ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½8:47:20
+ * @Author Augue 939405780@qq.com
  */
 public class MainTest {
-	
-	public static void main(String[] args) {
-		
-		int[] A = {2, 8, 13, 24, 4, 5, 9, 6, 14, 36};
-		
-		A = sortArrayByParity(A);
-		
-		for (int i : A) {
-			System.out.println(i);
-		}
-	}
-	
-	/**
-	 * 
-	 * @Description ×Ô¼ºÐ´µÄ´úÂë
-	 * @Author		Augue 939405780@qq.com
-	 * @Date		2019Äê5ÔÂ6ÈÕ ÉÏÎç8:48:27
-	 * @param @param A
-	 * @param @return 
-	 * @return int[]  
-	 * @throws
-	 */
-	public static int[] sortArrayByParity(int[] A) {
-		
-		int[] arr = new int[A.length];
-		int num = 0;
-		
-		for (int i = 0; i < A.length; i ++) {
-			if (A[i] % 2 == 0) {
-				arr[num ++] = A[i];
-			}
-		}
-		for (int i = 0; i < A.length; i ++) {
-			if (A[i] % 2 != 0) {
-				arr[num ++] = A[i];
-			}
-		}
-		
+
+    public static void main(String[] args) {
+
+        int[] A = {2, 8, 13, 24, 4, 5, 9, 6, 14, 36};
+
+        A = sortArrayByParity(A);
+
+        for (int i : A) {
+            System.out.println(i);
+        }
+    }
+
+    /**
+     * @param @param  A
+     * @param @return
+     * @return int[]
+     * @throws
+     * @Description ï¿½Ô¼ï¿½Ð´ï¿½Ä´ï¿½ï¿½ï¿½
+     * @Author Augue 939405780@qq.com
+     * @Date 2019ï¿½ï¿½5ï¿½ï¿½6ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½8:48:27
+     */
+    public static int[] sortArrayByParity(int[] A) {
+
+        int[] arr = new int[A.length];
+        int num = 0;
+
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] % 2 == 0) {
+                arr[num++] = A[i];
+            }
+        }
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] % 2 != 0) {
+                arr[num++] = A[i];
+            }
+        }
+
         return arr;
     }
-	
-	/**
-	 * 
-	 * @Description Ê¹ÓÃË«Ö¸ÕëÊµÏÖ
-	 * @Author		Augue 939405780@qq.com
-	 * @Date		2019Äê5ÔÂ6ÈÕ ÉÏÎç8:49:35
-	 * @param @param A
-	 * @param @return 
-	 * @return int[]  
-	 * @throws
-	 */
-	public static int[] sortArrayByParity2(int[] A) {
+
+    /**
+     * @param @param  A
+     * @param @return
+     * @return int[]
+     * @throws
+     * @Description Ê¹ï¿½ï¿½Ë«Ö¸ï¿½ï¿½Êµï¿½ï¿½
+     * @Author Augue 939405780@qq.com
+     * @Date 2019ï¿½ï¿½5ï¿½ï¿½6ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½8:49:35
+     */
+    public static int[] sortArrayByParity2(int[] A) {
 
         if (A.length <= 0) {
             return A;
         }
-        
-        int left = 0; // ×ó
-        int right = A.length - 1; // ÓÒ
+
+        int left = 0; // ï¿½ï¿½
+        int right = A.length - 1; // ï¿½ï¿½
         int temp;
         while (left < right) {
-        	
+
             if (left < A.length && A[left] % 2 == 0) {
-            	left ++;
+                left++;
             }
-            
+
             if (right >= 0 && A[right] % 2 != 0) {
-            	right --;
+                right--;
             }
-            
+
             if (left < right) {
                 temp = A[left];
                 A[left] = A[right];
                 A[right] = temp;
             }
         }
-        
+
         return A;
     }
 }
